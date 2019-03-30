@@ -37,6 +37,48 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="1003">
+				<Option output="/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/1003" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 1003"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="1003/fast">
+				<Option output="/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/1003" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 1003/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="1002">
 				<Option output="/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug/1002" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/alex/Documents/projects/git_repos/PAT-Solutions/cmake-build-debug"/>
@@ -127,6 +169,9 @@
 		</Unit>
 		<Unit filename="/Users/alex/Documents/projects/git_repos/PAT-Solutions/Basic/1002-写出这个数(20分).cpp">
 			<Option target="1002"/>
+		</Unit>
+		<Unit filename="/Users/alex/Documents/projects/git_repos/PAT-Solutions/Basic/1003-我要通过(20分).cpp">
+			<Option target="1003"/>
 		</Unit>
 		<Unit filename="/Users/alex/Documents/projects/git_repos/PAT-Solutions/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

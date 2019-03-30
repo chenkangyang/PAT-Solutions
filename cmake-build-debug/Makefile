@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named 1003
+
+# Build rule for target.
+1003: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 1003
+.PHONY : 1003
+
+# fast build rule for target.
+1003/fast:
+	$(MAKE) -f CMakeFiles/1003.dir/build.make CMakeFiles/1003.dir/build
+.PHONY : 1003/fast
+
+#=============================================================================
 # Target rules for targets named 1002
 
 # Build rule for target.
@@ -190,6 +203,33 @@ Basic/1002-写出这个数(20分).cpp.s:
 	$(MAKE) -f CMakeFiles/1002.dir/build.make "CMakeFiles/1002.dir/Basic/1002-写出这个数(20分).cpp.s"
 .PHONY : Basic/1002-写出这个数(20分).cpp.s
 
+Basic/1003-我要通过(20分).o: Basic/1003-我要通过(20分).cpp.o
+
+.PHONY : Basic/1003-我要通过(20分).o
+
+# target to build an object file
+Basic/1003-我要通过(20分).cpp.o:
+	$(MAKE) -f CMakeFiles/1003.dir/build.make "CMakeFiles/1003.dir/Basic/1003-我要通过(20分).cpp.o"
+.PHONY : Basic/1003-我要通过(20分).cpp.o
+
+Basic/1003-我要通过(20分).i: Basic/1003-我要通过(20分).cpp.i
+
+.PHONY : Basic/1003-我要通过(20分).i
+
+# target to preprocess a source file
+Basic/1003-我要通过(20分).cpp.i:
+	$(MAKE) -f CMakeFiles/1003.dir/build.make "CMakeFiles/1003.dir/Basic/1003-我要通过(20分).cpp.i"
+.PHONY : Basic/1003-我要通过(20分).cpp.i
+
+Basic/1003-我要通过(20分).s: Basic/1003-我要通过(20分).cpp.s
+
+.PHONY : Basic/1003-我要通过(20分).s
+
+# target to generate assembly for a file
+Basic/1003-我要通过(20分).cpp.s:
+	$(MAKE) -f CMakeFiles/1003.dir/build.make "CMakeFiles/1003.dir/Basic/1003-我要通过(20分).cpp.s"
+.PHONY : Basic/1003-我要通过(20分).cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -198,6 +238,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... 1003"
 	@echo "... 1002"
 	@echo "... 1001"
 	@echo "... Basic/1001-害死人不偿命的(3n+1)猜想(15分).o"
@@ -206,6 +247,9 @@ help:
 	@echo "... Basic/1002-写出这个数(20分).o"
 	@echo "... Basic/1002-写出这个数(20分).i"
 	@echo "... Basic/1002-写出这个数(20分).s"
+	@echo "... Basic/1003-我要通过(20分).o"
+	@echo "... Basic/1003-我要通过(20分).i"
+	@echo "... Basic/1003-我要通过(20分).s"
 .PHONY : help
 
 
