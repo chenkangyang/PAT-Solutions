@@ -1,7 +1,4 @@
-//
-// Created by 陈康扬 on 2019-03-18.
-//
-
+// 模拟
 #include <iostream>
 
 using namespace std;

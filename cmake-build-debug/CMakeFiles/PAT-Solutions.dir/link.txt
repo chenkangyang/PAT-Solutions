@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  "CMakeFiles/PAT-Solutions.dir/Basic/1001-害死人不偿命的(3n+1)猜想(15分).cpp.o"  -o PAT-Solutions 

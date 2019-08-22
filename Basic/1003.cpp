@@ -1,11 +1,7 @@
-//
-// Created by 陈康扬 on 2019-03-30.
-//
-
+// 数学题
 #include <iostream>
 #include <map>
 using namespace std;
-
 /*
  * 2. P,T前后字符A长度相同
  * 3. 可以在P和T中间加A并且在T后面加A，要求必须是，中间加上一个A，末尾就得加上几倍的(P前面A的那个字符串)。
