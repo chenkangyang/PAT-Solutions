@@ -4,12 +4,12 @@
  * @Autor: Alex
  * @Date: 2019-08-21 20:34:54
  * @LastEditors: Alex
- * @LastEditTime: 2019-08-21 22:15:13
+ * @LastEditTime: 2019-08-24 20:58:38
  */
 #include <cstdio>
 #include <cstring>
 #include <cmath>
-
+#include <algorithm>
 using namespace std;
 
 const int maxn = 11;
@@ -31,7 +31,7 @@ long long convert_to_decimal (char a[], long long radix) { // 将base进制的�
     return sum;
 }
 
-int find_radix(char b[], long long a) { // 查找b在什么进制时, 和a相同
+long long find_radix(char b[], long long a) { // 查找b在什么进制时和a相同
     // 需要查找的进制数的最小值 = 字符串b中最大值+1, 最大值为a+1
     long long min_radix = 0, max_radix;
     int len  = strlen(b);
@@ -40,16 +40,16 @@ int find_radix(char b[], long long a) { // 查找b在什么进制时, 和a相同
         if (min_radix < cal(b[i]))  min_radix  = cal(b[i]);
     }
     min_radix += 1; // 110 对应min_radix 就是2
-    max_radix = a+1;
+    max_radix = max(min_radix, a);
     // printf("min:%lld, max:%lld\n", min_radix, max_radix);
-    while (min_radix < max_radix)
+    while (min_radix <= max_radix)
     {
         long long mid_radix = min_radix + (max_radix - min_radix) / 2;
         long long b_decimal = convert_to_decimal(b, mid_radix);
         // 转换结果过大, 说明当前进制进制大于mid_radix, 想求进制影子在左区间 甚至大到溢出了longlong
         if (b_decimal > a || b_decimal < 0)
         {
-            max_radix = mid_radix; // 在左区间找
+            max_radix = mid_radix-1; // 在左区间找
         } else if (b_decimal == a) {
             return mid_radix;
         }
