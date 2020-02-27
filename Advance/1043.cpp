@@ -4,14 +4,12 @@
  * @Autor: Alex
  * @Date: 2019-08-20 20:20:43
  * @LastEditors: Alex
- * @LastEditTime: 2019-08-21 22:50:21
+ * @LastEditTime: 2019-09-04 22:49:08
  */
 #include <cstdio>
 #include <vector>
 using namespace std; 
 // 用vector存储初始序列, 先序序列, 镜像树序列可以方便相互比较
-
-const int maxn = 1000;
 
 struct node {
     int data;

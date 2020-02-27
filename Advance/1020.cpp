@@ -4,7 +4,7 @@
  * @Autor: Alex
  * @Date: 2019-08-18 22:48:06
  * @LastEditors: Alex
- * @LastEditTime: 2019-08-21 22:20:40
+ * @LastEditTime: 2019-09-06 20:08:01
  */
 #include <cstdio>
 #include <cstring>
@@ -12,56 +12,51 @@
 #include <algorithm>
 using namespace std;
 
-const int maxn = 50;
+const int MAXN = 50;
+int in[MAXN], post[MAXN], n; // 中序, 后序, 层序, 节点数
+
 struct node {
     int data;
     node* lchild;
     node* rchild;
 };
 
-int pre[maxn], in[maxn], post[maxn];
-int n;
-
-// 当前二叉树后序区间为[postL, postR], 中序区间为[inL, inR]
-// create函数返回构建出的二叉树的根节点
-node* create(int postL, int postR, int inL, int inR) {
-    // 在中序中找和后序中最后一个节点相同的
-    if (postL > postR) return NULL;
+node* create (int in_L, int in_R, int post_L, int post_R) { // 递归
+    if (post_L > post_R) return NULL; // 递归终止条件
+    
     node *root = new node;
-    root->data = post[postR];
-    // printf("root[%d]: %d\n", postR, root->data);
-    int k;
-    for (k = inL; k <= inR; k++)
+    root->data = post[post_R];
+    int k; // 记录中序序列中的根节点的下标
+    for (k = in_L; k <= in_R; k++)
     {
-        // printf("in[%d]:%d, post[%d]:%d\n", k, in[k], postR, post[postR]);
-        if (in[k] == post[postR]) {
+        if (in[k] == root->data) {
             break;
         }
     }
-    // printf("break, k:%d\n", k);
-    int numLeft = k - inL; // 左子树的节点个数
-    // printf("numLeft:%d\n", numLeft);
-    root->lchild = create(postL, postL + numLeft - 1, inL, k-1); // 递归!!!!
-    root->rchild = create(postL + numLeft, postR-1, k+1, inR); // 递归!!!!
+
+     // 由中序列左子树结点个数, 可在后序序列中划分出左右子树
+    int numLeft = k - in_L;
+    root->lchild = create(in_L, k -1, post_L, post_L + numLeft - 1);
+    root->rchild = create(k+1, in_R, post_L + numLeft, post_R-1);
     return root;
 }
 
-int num = 0; // 已输出节点的个数
-void BFS(node* root) {
-    queue<node*> Q;
-    Q.push(root);
-    while (!Q.empty())
+int num = 0; // 已输出节点个数, 用于控制输出空格
+void BFS(node *root) {
+    queue<node*> q;
+    q.push(root);
+    while (!q.empty())
     {
-        node* now = Q.front(); // 取出队首元素
-        Q.pop();
-        printf("%d", now->data);
+        node *now = q.front();
+        q.pop();
         num ++;
+        printf("%d", now->data);
         if (num < n)
         {
             printf(" ");
         }
-        if (now->lchild != NULL) Q.push(now->lchild);
-        if (now->rchild != NULL) Q.push(now->rchild);
+        if (now->lchild != NULL) q.push(now->lchild);
+        if (now->rchild != NULL) q.push(now->rchild);
     }
 }
 
@@ -75,7 +70,7 @@ int main(){
     {
         scanf("%d", &in[i]);
     }
-    node *root = create(0, n-1, 0, n-1);
+    node *root = create(0, n - 1, 0, n - 1); // 下标范围
     BFS(root);
     return 0;
 }

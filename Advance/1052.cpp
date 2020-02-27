@@ -1,10 +1,10 @@
 /*
- * @Description: 
+ * @Description: 链表排序
  * @Version: 1.0
  * @Autor: Alex
  * @Date: 2019-08-18 21:31:51
  * @LastEditors: Alex
- * @LastEditTime: 2019-08-20 20:19:31
+ * @LastEditTime: 2019-09-06 21:03:46
  */
 #include <cstdio>
 #include <algorithm>
@@ -22,13 +22,14 @@ struct  Node
 
 
 bool cmp(Node a, Node b) {
-    if(a.flag == false || b.flag == false) { // 至少一个节点无效，把它向后移动
+    // 至少一个节点无效，把它向后移动, 有效节点falg=1, 
+    // 大于无效节点, 按flag从大到校排序, 有效节点移动到数组最左端
+    if(a.flag == false || b.flag == false) { 
         return a.flag > b.flag;
     } else
     {
         return a.key < b.key;
     }
-    
 }
 int main() {
     int n, begin;

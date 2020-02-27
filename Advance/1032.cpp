@@ -4,50 +4,49 @@
  * @Autor: Alex
  * @Date: 2019-08-14 22:28:25
  * @LastEditors: Alex
- * @LastEditTime: 2019-08-21 22:46:10
+ * @LastEditTime: 2019-09-02 19:27:00
  */
 #include <cstdio>
 
-const int maxn = 100000;
+const int MAXN = 100010;
 
-struct NODE {
+struct node {
     char data;
     int next;
-    bool flag; // 有没有在前一个链表中被统计过
-}nodelst[maxn];
+    bool flag;
+}list[MAXN];
 
 int main() {
-    for (int i = 0; i < maxn; i++)
-    {
-        nodelst[i].flag = false;
-    }
     int s1, s2, n;
     scanf("%d%d%d", &s1, &s2, &n);
-
-    int address, next;
-    char data;
+    for (int i = 0; i < MAXN; i++)
+    {
+        list[i].flag = false;
+    }
     for (int i = 0; i < n; i++)
     {
-        scanf("%d %c %d", &address, &data, &next);
-        nodelst[address].data = data;
-        nodelst[address].next = next;
+        int index, next;
+        char data;   
+        scanf("%d %c %d", &index, &data, &next); // 一定要有空格！
+        list[index].data = data;
+        list[index].next = next;
     }
-    int p;
-    for (p = s1; p != -1; p = nodelst[p].next) // 遍历第一条链表
+    for (int i = s1; i != -1; i = list[i].next)
     {
-        // printf("first: %05d %c %05d\n", p, nodelst[p].data, nodelst[p].next);
-        nodelst[p].flag = true;
+        // printf("first: %05d %c %05d\n", i, list[i].data, list[i].next);
+        list[i].flag = true;
     }
-    for (p = s2; p != -1; p = nodelst[p].next) // 遍历第二条链表, 输出第一个flag为false的p
+    int i;
+    for (i = s2; i != -1; i = list[i].next)
     {
-        // printf("second: p:%05d, next: %d, flag:%d\n", p, nodelst[p].next, nodelst[p].flag);
-        if (nodelst[p].flag) {
-            printf("%05d", p);
+        // printf("second: %05d %c %05d\n", i, list[i].data, list[i].next);
+        if (list[i].flag == true)
+        {
+            printf("%05d", i);
             break;
         }
     }
-
-    if (p == -1)
+    if (i == -1)
     {
         printf("-1");
     }
